@@ -36,6 +36,9 @@ const Pricing = React.lazy(() => import('../pages/other/Pricing'));
 const Error404 = React.lazy(() => import('../pages/other/Error404'));
 const Error500 = React.lazy(() => import('../pages/other/Error500'));
 
+//sales
+const Sales = React.lazy(() => import('../pages/sales'));
+
 // ui
 const BSComponents = React.lazy(() => import('../pages/uikit/BSComponents/'));
 const FeatherIcons = React.lazy(() => import('../pages/uikit/Icons/Feather'));
@@ -472,6 +475,17 @@ const dashboardRoute = {
 //         }]
 // };
 
+// sales
+const saleRoutes = {
+    path: '/sale',
+    name: 'Sales',
+    component: Sales,
+    icon: FeatherIcon.UserX,
+    roles: ['Admin'],
+    route: PrivateRoute
+}
+
+
 
 // auth
 const authRoutes = {
@@ -511,6 +525,7 @@ const authRoutes = {
     ],
 };
 
+
 // flatten the list of all nested routes
 const flattenRoutes = routes => {
     let flatRoutes = [];
@@ -530,6 +545,7 @@ const flattenRoutes = routes => {
 const allRoutes = [
     rootRoute,
     dashboardRoute,
+    saleRoutes,
     // itemsRoute,
     // ...itemsSubRoute,
     authRoutes,
@@ -537,6 +553,6 @@ const allRoutes = [
     // TransactionsRoute
 ];
 
-const authProtectedRoutes = [dashboardRoute];
+const authProtectedRoutes = [dashboardRoute, saleRoutes];
 const allFlattenRoutes = flattenRoutes(allRoutes);
 export { allRoutes, authProtectedRoutes, allFlattenRoutes };
