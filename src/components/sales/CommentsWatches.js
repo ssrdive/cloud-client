@@ -1,23 +1,18 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, CardBody, TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import { Row, Col, Nav, NavItem, NavLink, TabContent, TabPane, Card, CardBody } from 'reactstrap';
 import classnames from 'classnames';
-import SearchByModel from '../../pages/sales/SearchByModel';
-import SearchByRange from '../../pages/sales/SearchByRange';
-import IncompleteSales from '../../pages/sales/IncompleteSales';
+import Comments from './Comments';
+import Watches from './Watches';
 
 
-
-class Sales extends Component {
+class CommentsWatchesTabs extends Component {
     constructor(props) {
         super(props);
         this.state = { activeTab: '1' };
         this.toggle = this.toggle.bind(this);
     }
 
-    /**
-     * Toggle the tab
-     */
-    toggle = (tab) => {
+    toggle = tab => {
         if (this.state.activeTab !== tab) {
             this.setState({
                 activeTab: tab,
@@ -29,29 +24,26 @@ class Sales extends Component {
         const tabContents = [
             {
                 id: '1',
-                title: 'Search By Range',
-                icon: 'uil-home-alt',
-                component: SearchByRange,
+                title: 'Comments',
+                icon: ' uil-database-alt',
+                component: () => {
+                    return <Comments id={this.props.id} />;
+                },
             },
-            {
+             {
                 id: '2',
-                title: 'Incomplete Sales',
-                icon: 'uil-user',
-                component: IncompleteSales,
-            },
-            {
-                id: '3',
-                title: 'Search By Model',
-                icon: 'uil-envelope',
-                component: SearchByModel,
+                title: 'Watches',
+                icon: 'uil-money-stack',
+                component: () => {
+                    return <Watches id={this.props.id} />;
+                },
             },
         ];
 
         return (
             <React.Fragment>
-                <Card>
+                 <Card>
                 <CardBody>
-                <h3><label className="">Sale Reports</label></h3>   
                 <Row>
                     <Col lg={12}>
                         <Nav tabs>
@@ -94,4 +86,4 @@ class Sales extends Component {
     }
 }
 
-export default Sales;
+export default CommentsWatchesTabs;

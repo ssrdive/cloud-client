@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, CardBody, TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
+import { Row, Col, Nav, NavItem, NavLink, TabContent, TabPane, Card, CardBody } from 'reactstrap';
 import classnames from 'classnames';
-import SearchByModel from '../../pages/sales/SearchByModel';
-import SearchByRange from '../../pages/sales/SearchByRange';
-import IncompleteSales from '../../pages/sales/IncompleteSales';
+import VerifyOrComment from './VerifyOrComment';
+import MarkSaleComplete from './MarkSaleComplete';
+import  Commissions from './Commissions';
+import RMV from './RMV';
+import SaleWatch from './SaleWatch';
+/* 
+import ContractDetails from './ContractDetails';
+import ContractInstallments from './ContractInstallments';
+import ContractReceipts from './ContractReceipts';
+import ContractCommitments from './ContractCommitments';
+import ContractQuestions from './ContractQuestions';
+import ContractDocuments from './ContractDocuments';
+import ContractHistory from './ContractHistory'; 
+import Dev from './Dev'; */
 
-
-
-class Sales extends Component {
+class DetailsTabs extends Component {
     constructor(props) {
         super(props);
         this.state = { activeTab: '1' };
         this.toggle = this.toggle.bind(this);
     }
 
-    /**
-     * Toggle the tab
-     */
-    toggle = (tab) => {
+    toggle = tab => {
         if (this.state.activeTab !== tab) {
             this.setState({
                 activeTab: tab,
@@ -29,29 +35,59 @@ class Sales extends Component {
         const tabContents = [
             {
                 id: '1',
-                title: 'Search By Range',
-                icon: 'uil-home-alt',
-                component: SearchByRange,
+                title: 'Verify Or Comment on Sale',
+                icon: ' uil-database-alt',
+                component: () => {
+                    return <VerifyOrComment id={this.props.id} />;
+                },
             },
-            {
+             {
                 id: '2',
-                title: 'Incomplete Sales',
-                icon: 'uil-user',
-                component: IncompleteSales,
+                title: 'Mark Sale Complete',
+                icon: 'uil-money-stack',
+                component: () => {
+                    return <MarkSaleComplete id={this.props.id} />;
+                },
             },
             {
                 id: '3',
-                title: 'Search By Model',
-                icon: 'uil-envelope',
-                component: SearchByModel,
+                title: 'Commissions',
+                icon: 'uil-comment-question',
+                component: () => {
+                    return <Commissions id={this.props.id} />;
+                },
             },
+            {
+                id: '4',
+                title: 'Sale Watch',
+                icon: 'uil-receipt',
+                component: () => {
+                    return <SaleWatch id={this.props.id} />;
+                },
+            },
+            {
+                id: '5',
+                title: 'RMV',
+                icon: 'uil-comment-message',
+                component: () => {
+                    return <RMV id={this.props.id} />;
+                },
+            },
+            
+           /* {
+                id: '8',
+                title: 'Dev',
+                icon: 'uil-trowel',
+                component: () => {
+                    return <Dev id={this.props.id} />;
+                },
+            }, */
         ];
 
         return (
             <React.Fragment>
-                <Card>
+                 <Card>
                 <CardBody>
-                <h3><label className="">Sale Reports</label></h3>   
                 <Row>
                     <Col lg={12}>
                         <Nav tabs>
@@ -94,4 +130,4 @@ class Sales extends Component {
     }
 }
 
-export default Sales;
+export default DetailsTabs;

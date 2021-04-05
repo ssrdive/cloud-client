@@ -19,8 +19,8 @@ const InlineFormOfficer = () => {
     return (
         <Card>
             <CardBody>
-                <Form inline>
-                <Col xl={3}>
+                <Form>
+                
                     <Select
                     
                     className="react-select"
@@ -31,7 +31,7 @@ const InlineFormOfficer = () => {
                         { value: 'strawberry', label: 'Strawberry' },
                         { value: 'vanilla', label: 'Vanilla' },
                     ]}></Select>
-                    </Col>
+                    
                    
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <div className="form-group">

@@ -38,6 +38,12 @@ const Error500 = React.lazy(() => import('../pages/other/Error500'));
 
 //sales
 const Sales = React.lazy(() => import('../pages/sales'));
+const QiuckAllSales = React.lazy(() => import('../pages/sales/QuickAllSales'));
+const QiuckTodaySales = React.lazy(() => import('../pages/sales/QuickTodaySales'));
+const cloudidinfor = React.lazy(() => import('../pages/sales/CloudIDInfor'));
+const CIDInfo  = React.lazy(() => import('../pages/sales/CIDInfo'));
+const ChassisNum  = React.lazy(() => import('../pages/sales/ChassisNumb'));
+const SearchKey  = React.lazy(() => import('../pages/sales/SearchKey'));
 
 // ui
 const BSComponents = React.lazy(() => import('../pages/uikit/BSComponents/'));
@@ -477,13 +483,67 @@ const dashboardRoute = {
 
 // sales
 const saleRoutes = {
-    path: '/sale',
+    path: '/sales',
     name: 'Sales',
     component: Sales,
     icon: FeatherIcon.UserX,
     roles: ['Admin'],
     route: PrivateRoute
-}
+};
+
+const saleSubRoutes = [
+    {
+        path: '/sale/quick-all-sales',
+        name: 'Qiuck All Sales',
+        exact: true,
+        component: QiuckAllSales,
+        route: PrivateRoute,
+        roles: ['Admin']
+    },
+    {
+        path: '/sale/quick-today-sales',
+        name: 'Qiuck Today Sales',
+        exact: true,
+        component: QiuckTodaySales,
+        route: PrivateRoute,
+        roles: ['Admin']
+    },
+    {
+        path: '/sale/cloud-id-infor/:id',
+        name: 'Qiuck Today Sales',
+        exact: true,
+        component: cloudidinfor,
+        route: PrivateRoute,
+        roles: ['Admin']
+    },
+    {
+        path: '/sale/cidinfo',
+        name: 'CloudId Information',
+        exact: true,
+        component: CIDInfo,
+        route: PrivateRoute,
+        roles: ['Admin']
+    },
+    {
+        path: '/sale/chassisnumb',
+        name: 'CloudId Information',
+        exact: true,
+        component: ChassisNum,
+        route: PrivateRoute,
+        roles: ['Admin']
+    },
+    {
+        path: '/sale/searchkey',
+        name: 'CloudId Information',
+        exact: true,
+        component: SearchKey,
+        route: PrivateRoute,
+        roles: ['Admin']
+    },
+];
+
+
+
 
 
 
@@ -546,6 +606,7 @@ const allRoutes = [
     rootRoute,
     dashboardRoute,
     saleRoutes,
+    ...saleSubRoutes,
     // itemsRoute,
     // ...itemsSubRoute,
     authRoutes,

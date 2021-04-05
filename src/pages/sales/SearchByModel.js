@@ -40,7 +40,7 @@ const InlineFormOfficer = () => {
                         </div>
                     </FormGroup>
                     <FormGroup>
-                    <Col md={6}>
+                    
                     <Select
                     
                     className="react-select"
@@ -50,10 +50,10 @@ const InlineFormOfficer = () => {
                         { value: 'strawberry', label: 'Strawberry' },
                         { value: 'vanilla', label: 'Vanilla' },
                     ]}></Select>
-                    </Col>
+                    
                     </FormGroup>
                     <FormGroup>
-                    <Col md={6}>
+                  
                     <Select
                     
                     className="react-select"
@@ -63,7 +63,7 @@ const InlineFormOfficer = () => {
                         { value: 'strawberry', label: 'Strawberry' },
                         { value: 'vanilla', label: 'Vanilla' },
                     ]}></Select>
-                    </Col>
+                    
                     </FormGroup>
                    
                     <Button color="primary" type="submit">
@@ -80,7 +80,7 @@ const BasicForms = () => {
         <React.Fragment>
 
             <Row>
-                <Col xl={6}>
+                <Col xl={12}>
                     <InlineFormOfficer />
                 </Col>
             </Row>
