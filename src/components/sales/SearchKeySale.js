@@ -3,25 +3,22 @@ import { Row, Form, Button, FormGroup, Col, Card, CardBody, Label } from 'reacts
 
 import FormInput from '../form/FormInput';
 import {
-    TEXT_INPUT_OPTIONAL,
+    NUMBER_INPUT_REQUIRED, TEXT_INPUT_REQUIRED
 } from '../../constants/formValues';
 import { loadDropdownGeneric } from '../../helpers/form';
 
 export default ({ history }) => {
     const [form, setForm] = useState({
-        question_id: TEXT_INPUT_OPTIONAL,
+        keyword: TEXT_INPUT_REQUIRED,
       //  empty_only: { value: 0, type: 'select', options: [{ id: 0, name: 'No' }, { id: 1, name: 'Yes' }] },
       //  keyword: TEXT_INPUT_OPTIONAL,
     });
 
-    useEffect(() => {
-        loadDropdownGeneric('question', 'question_id', setForm);
-    }, []);
 
     const handleFormSubmit = e => {
         e.persist();
         e.preventDefault();
-        history.push(`/sale/searchkey?key=${form.question_id.value}`)
+        history.push(`/sale/searchkey?search=${form.keyword.value}`)
     }
 
     const handleOnChange = e => {
@@ -39,10 +36,10 @@ export default ({ history }) => {
                     <Col md={12}>
                         <Form onSubmit={handleFormSubmit}>
                             <FormGroup>
-                                <FormInput
-                                    {...form['question_id']}
-                                    name="question_id"
-                                    placeholder="Enter Key"
+                            <FormInput
+                                    {...form['keyword']}
+                                    name="keyword"
+                                    placeholder="Enter Cloud ID"
                                     handleOnChange={handleOnChange}
                                 />
                             </FormGroup>

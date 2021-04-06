@@ -510,7 +510,7 @@ const saleSubRoutes = [
     },
     {
         path: '/sale/cloud-id-infor/:id',
-        name: 'Qiuck Today Sales',
+        name: 'Cloud ID Info',
         exact: true,
         component: cloudidinfor,
         route: PrivateRoute,
@@ -518,7 +518,7 @@ const saleSubRoutes = [
     },
     {
         path: '/sale/cidinfo',
-        name: 'CloudId Information',
+        name: 'Cloud Id Information',
         exact: true,
         component: CIDInfo,
         route: PrivateRoute,
@@ -526,7 +526,7 @@ const saleSubRoutes = [
     },
     {
         path: '/sale/chassisnumb',
-        name: 'CloudId Information',
+        name: 'Chasssis No Information',
         exact: true,
         component: ChassisNum,
         route: PrivateRoute,
@@ -534,7 +534,7 @@ const saleSubRoutes = [
     },
     {
         path: '/sale/searchkey',
-        name: 'CloudId Information',
+        name: 'Sale Search Information',
         exact: true,
         component: SearchKey,
         route: PrivateRoute,

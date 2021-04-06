@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, Table, Spinner } from 'reactstrap';
+import { Card, CardBody, Table, Spinner } from 'reactstrap';
+
 import { apiAuth } from '../../basara-api';
 
 export default ({ results, loading }) => {
@@ -11,51 +12,44 @@ export default ({ results, loading }) => {
                 <Table className="mb-0" responsive={true} striped>
                     <thead>
                         <tr>
-                            <th>Work</th>
-                            <th>Details</th>
-                            <th>Recovery Officer</th>
-                            <th>State</th>
-                            <th>Answer</th>
-                            <th>Created Ago</th>
-                            <th>State at Answer</th>
+                            <th>#</th>
+                            <th>Comments</th>
+                            <th>Chasssis No</th> 
+                            <th>Officer</th>
+                            <th>Region</th>
+                            <th>Territory</th>
+                            <th>Date</th>
+                            <th>Cloud Date</th>
+                            <th>Showroom/Dealer</th>
+                            <th>Customer Name</th>
+                            <th>Model</th>
                         </tr>
                     </thead>
                     <tbody>
-                      {/*   {results.map((result, index) => {
+                        {results.map((result, index) => {
                             return (
                                 <tr key={index}>
-                                    <td>
-                                        <Link to={`/contracts/work/${result.id}`}>{result.id}</Link>
-                                    </td>
-                                    <td>
-                                        <Link to={`/contracts/details/${result.id}`}>{result.id}</Link>
-                                    </td>
-                                    <td>{result.recovery_officer}</td>
-                                    <td>{result.state}</td>
-                                    <td>
-                                        {result.answer.Valid ? (
-                                            <Badge color="info">{result.answer.String}</Badge>
-                                        ) : (
-                                                <Badge color="danger">-</Badge>
-                                            )}
-                                    </td>
-                                    <td>
-                                        {result.created_ago.Valid ? (
-                                            <Badge color="info">{result.created_ago.Int32} days ago</Badge>
-                                        ) : (
-                                                <Badge color="danger">-</Badge>
-                                            )}
-                                    </td>
-                                    <td>
-                                        {result.state_at_answer.Valid ? (
-                                            <Badge color="info">{result.state_at_answer.String}</Badge>
-                                        ) : (
-                                                <Badge color="danger">-</Badge>
-                                            )}
-                                    </td>
+                                     <td><Link to={`/sale/cloud-id-infor/${result.id}`}>{result.id}</Link></td>
+                                     <td>{result.sale_comments}</td>
+                                     <td>{result.chassis_no}</td>
+                                     <td>{result.officer_name}</td>
+                                     <td>{result.region_name}</td>
+                                     <td>{result.territory_name}</td>
+                                     <td>{result.date}</td>
+                                     <td>{result.sys_date}</td>
+                                     {result.location  ? (<td>{result.location}</td>) : (<td>{result.sd_location}</td>)}
+                                    <td>{result.customer_name}</td>
+                                    <td>{result.model}</td>
+                                   {/*  <td>{result.customer_address}</td>
+                                    <td>{result.customer_contact}</td>
+                                    <td>{result.price}</td>
+                                    <td>{result.date}</td>
+                                    <td>{result.sys_date}</td> */}
+                                   
                                 </tr>
                             );
-                        })} */}
+                        })}
+                       
                     </tbody>
                 </Table>
                 {loading ? <Spinner color="primary" type="grow" /> : null}
