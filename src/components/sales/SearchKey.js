@@ -8,7 +8,7 @@ export default ({ results, loading }) => {
     return (
         <Card>
             <CardBody>
-                <h4 className="header-title mt-0 mb-1">All Sales</h4>
+                <h4 className="header-title mt-0 mb-1">Search Sales</h4>
                 <Table className="mb-0" responsive={true} striped>
                     <thead>
                         <tr>

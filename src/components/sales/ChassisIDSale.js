@@ -63,7 +63,7 @@ import { Row, Form, Button, FormGroup, Col, Card, CardBody, Label } from 'reacts
 
 import FormInput from '../form/FormInput';
 import {
-    NUMBER_INPUT_REQUIRED, TEXT_INPUT_OPTIONAL
+     TEXT_INPUT_OPTIONAL
 } from '../../constants/formValues';
 
 export default ({ history }) => {
@@ -98,7 +98,7 @@ export default ({ history }) => {
                             <FormInput
                                     {...form['keyword']}
                                     name="keyword"
-                                    placeholder="Enter Cloud ID"
+                                    placeholder="Enter Chassis Number"
                                     handleOnChange={handleOnChange}
                                 />
                             </FormGroup>

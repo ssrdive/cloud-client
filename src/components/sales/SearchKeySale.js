@@ -39,7 +39,7 @@ export default ({ history }) => {
                             <FormInput
                                     {...form['keyword']}
                                     name="keyword"
-                                    placeholder="Enter Cloud ID"
+                                    placeholder="Enter Keyword"
                                     handleOnChange={handleOnChange}
                                 />
                             </FormGroup>

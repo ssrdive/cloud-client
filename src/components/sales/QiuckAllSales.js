@@ -56,12 +56,19 @@ export default () => {
                             return (
                                 <tr key={index}>
                                      <td>{result.id}</td>
+                                     <td>{result.sale_comments}</td>
+                                     <td>{}</td>
+                                     <td>{result.region_name}</td>
+                                     <td>{}</td> 
+                                     <td>{result.date}</td>
+                                     <td>{result.sys_date}</td>
+                                     {result.location  ? (<td>{result.location}</td>) : (<td>{result.sd_location}</td>)}
                                     <td>{result.customer_name}</td>
                                     <td>{result.customer_address}</td>
                                     <td>{result.customer_contact}</td>
                                     <td>{result.price}</td>
-                                    <td>{result.date}</td>
-                                    <td>{result.sys_date}</td>
+                                    <td></td>
+                                    <td></td>
                                    
                                 </tr>
                             );
